@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Row from '../Components/Row'
+import useInterval from '../hooks/useInterval'
 import { createTable, nextTick } from '../helpers'
 
 const Table: React.FC = () => {
   const [table, setTable] = useState(createTable);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setTable(nextTick(table)), 400)
-    return () => {
-      clearTimeout(timeout)
-    };
-  });
+  useInterval(() => setTable(nextTick(table)), 400)
 
 
   return (
     <div>
-      {table.map(row => <Row row={row} />)}
+      {table.map((row, index) => <Row row={row} key={index} rowNumber={index} />)}
     </div>
   );
 }

@@ -6,7 +6,7 @@ interface CellProps {
   cell: number
 }
 
-const Cell: React.SFC<CellProps> = ({ cell }) => {
+const Cell: React.FC<CellProps> = ({ cell }) => {
 
   const isAlive = cell === ALIVE
   return (

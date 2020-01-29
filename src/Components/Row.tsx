@@ -3,13 +3,14 @@ import Cell from './Cell'
 import '../index.css'
 
 interface RowProps {
-  row: any
+  row: any,
+  rowNumber: number
 }
 
-const Row: React.SFC<RowProps> = ({ row }) => {
+const Row: React.FC<RowProps> = ({ row, rowNumber }) => {
 
   return (
-    <div className="row">{row.map((cell: number )=> <Cell cell={cell}/>)}</div>
+    <div className="row">{row.map((cell: number, id: number )=> <Cell cell={cell} key={`${rowNumber}${id}`}/>)}</div>
   )    
 }
 

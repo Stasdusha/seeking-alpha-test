@@ -32,8 +32,3 @@ test('create table length', () => {
   expect(createTable(testSize)[0].length).toBe(testSize)
 });
 
-test('create table length', () => {
-  const testSize = 50
-  expect(createTable(testSize).length).toBe(testSize)
-  expect(createTable(testSize)[0].length).toBe(testSize)
-});
