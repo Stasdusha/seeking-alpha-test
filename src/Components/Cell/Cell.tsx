@@ -1,6 +1,6 @@
 import React from 'react';
-import '../index.css'
-import { ALIVE } from '../helpers'
+import './cell.css'
+import { ALIVE } from '../../Services/tableService'
 
 interface CellProps {
   cell: number
@@ -14,4 +14,4 @@ const Cell: React.FC<CellProps> = ({ cell }) => {
   );
 }
 
-export default Cell;
+export default React.memo(Cell);
