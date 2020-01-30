@@ -22,10 +22,11 @@ const resultTable = [
 describe('Table component tests', () => {
 
   jest.useFakeTimers()
+  const crateTableMock = jest.fn(() => initTable)
+  const nextTickMock = jest.fn(() => resultTable)
 
   test('Table change state after tick', () => {
-    const crateTableMock = jest.fn(() => initTable)
-    const nextTickMock = jest.fn(() => resultTable)
+   
     render(<Table createTable={crateTableMock}  nextTick={nextTickMock}/>);
 
     expect(crateTableMock).toBeCalled();
@@ -38,13 +39,14 @@ describe('Table component tests', () => {
     expect(nextTickMock).toBeCalled();
   });
 
-  test('Table change state after tick', () => {
-    const crateTableMock = jest.fn(() => initTable)
-    const nextTickMock = jest.fn(() => resultTable)
+  test('Table check render rows', () => {
     const { container } = render(<Table createTable={crateTableMock}  nextTick={nextTickMock}/>);
+    expect(container.querySelectorAll(".row").length).toBe(5)
+  });
 
-    container
- 
+  test('Table check render cells', () => {
+    const { container } = render(<Table createTable={crateTableMock}  nextTick={nextTickMock}/>);
+    expect(container.querySelectorAll(".cell").length).toBe(25)
   });
 
 
