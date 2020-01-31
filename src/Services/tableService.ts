@@ -14,7 +14,7 @@ export const getNeighbors = (x: number, y: number, size: number = SIZE): number[
 export const isInFrame = (cell : number[], size: number = SIZE): boolean =>
   cell[0] >= 0 && cell[0] < size && cell[1] >= 0 && cell[1] < size
 
-export const aliveNeighbors = (world: Array<any>, x: number, y: number, size: number = SIZE): number => {
+export const aliveNeighbors = (world: number[][], x: number, y: number, size: number = SIZE): number => {
     return getNeighbors(x, y, size).filter(n => world[n[0]][n[1]] === ALIVE).length;
 }
 
