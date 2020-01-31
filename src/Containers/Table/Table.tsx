@@ -10,7 +10,7 @@ interface TableProps {
 const Table: React.FC<TableProps> = ({ createTable, nextTick}) => {
   const [table, setTable] = useState(createTable);
 
-  useInterval(() => setTable(nextTick(table)), 1400)
+  useInterval(() => setTable(nextTick(table)), 400)
 
 
   return (
